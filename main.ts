@@ -4,11 +4,12 @@ import { Airlines } from "./src/Airline";
 import { Airports } from "./src/Airport";
 import { Address } from "./src/Address";
 import { Airplane } from "./src/Airplane";
+import { SearchFlight } from "./src/search_flight";
+import { Flight } from "./src/Flight";
 
 // Customers
 const customer = new Customer(1,"Sopanha","Sin",21,"Sopanha@gmail.com","+855 71 32 03 852");
 
-// searchFlight?: SearchFlightaddresses airports
 const addressAirport = new Address("Phnom Penh","Cambodia",12000);
 
 // adress airlines
@@ -21,7 +22,16 @@ const airport1 = new Airports("Puchentong",addressAirport);
 const angkorAirLine = new Airlines("Angkor","RL1223","+855 12 999 777 8855","Angkor@gmail.com",addressAngkorAirLine);
 
 // Create airplane
-const airplane1 = new Airplane("Angkor","BR1543","")
+const airplane1 = new Airplane("Angkor","BR1543","");
+
+// Create flight
+
+const flight1 = new Flight("Phnom Penh","Siem Reab","28/02/2024","02/03/2024");
+const flight2 = new Flight("Phnom Penh","Takeo","09/03/2024","13/03/2024");
+
+// Create searchFlight
+const searchFlight = new SearchFlight("Phnom Penh","Siem Reab","28/02/2024","02/03/2024");
+
 
 // Add airline to airplane
 airplane1.addAirline(angkorAirLine);
@@ -35,7 +45,8 @@ airport1.addAirline(angkorAirLine);
 airport1.addFlight(flight1);
 airport1.addFlight(flight2);
 
-
+// Add airport to searchFlight
+searchFlight.addAirport(airport1);
 
 // Get search
 searchFlight.getFlight();

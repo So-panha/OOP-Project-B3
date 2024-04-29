@@ -15,7 +15,7 @@ export class SearchFlight {
     getFlight(): Airports{
         const flights = this.airports.getFlights();
         flights.forEach(flight => {
-            
+            if(flight.getFlight())
             console.log(flight.getFlight());
         });
         
