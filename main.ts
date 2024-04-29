@@ -4,6 +4,7 @@ import { Airlines } from "./src/Airline";
 import { Airports } from "./src/Airport";
 import { Address } from "./src/Address";
 import { Airplane } from "./src/Airplane";
+import {Ticket } from "./src/Ticket";
 
 // Customers
 const customer = new Customer(1,"Sopanha","Sin",21,"Sopanha@gmail.com","+855 71 32 03 852");
@@ -23,6 +24,9 @@ const angkorAirLine = new Airlines("Angkor","RL1223","+855 12 999 777 8855","Ang
 
 // Create airplane
 const airplane1 = new Airplane("Angkor","BR1543","")
+
+//Create ticket
+const ticket = new Ticket("KPC tickets", 100);
 
 // Add airline to airplane
 airplane1.addAirline(angkorAirLine);
