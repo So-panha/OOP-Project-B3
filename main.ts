@@ -6,6 +6,10 @@ import { Address } from "./src/Address";
 import { Airplane } from "./src/Airplane";
 import { SearchFlight } from "./src/search_flight";
 import { Flight } from "./src/Flight";
+import {Ticket } from "./src/Ticket";
+import {Booking } from "./src/Booking";
+import {Passenger} from "./src/Passenger";
+import {Tag } from "./src/Tag";
 
 // Customers
 const customer = new Customer(1,"Sopanha","Sin",21,"Sopanha@gmail.com","+855 71 32 03 852");
@@ -31,6 +35,25 @@ const flight2 = new Flight("Phnom Penh","Takeo","09/03/2024","13/03/2024");
 
 // Create searchFlight
 const searchFlight = new SearchFlight("Phnom Penh","Siem Reab","28/02/2024","02/03/2024");
+
+//Create ticket
+const ticket = new Ticket("KPC tickets", 100);
+
+// Create a Booking object
+const booking = new Booking(
+    "ABC123",
+    "123456",
+    "Departure Airport",
+    "Destination Airport",
+    new Date(),
+    ticket
+);
+
+//Create Passenger
+const passenger = new Passenger("P123");
+
+// Create an instance of the Tag class
+const tag = new Tag("1", "Kea Tag", "It is small");
 
 
 // Add airline to airplane
