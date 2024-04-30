@@ -12,7 +12,7 @@ import { Passenger } from "./src/Passenger";
 import { Tag } from "./src/Tag";
 import { Attendant } from './src/Attendant';
 import { CoPilot } from './src/CoPilot';
-import { Pilot } from './src/Pilot';
+// import { Pilot } from './src/Pilot';
 
 // Feature flight
 
@@ -88,46 +88,4 @@ const addressCustomer1 = new Address("Phnom Penh", "Cambodia", 12000);
 
 // Customers
 const customer1 = new Customer("A001", "Sopanha", "Sin", 21, "male", "+855 71 32 03 852", "Sopanha@gmail.com", addressCustomer1);
-
-//Create ticket
-const ticket = new Ticket("KPC tickets", 100);
-
-// Create a Booking object
-const booking = new Booking(
-    "ABC123",
-    "123456",
-    "Departure Airport",
-    "Destination Airport",
-    new Date(),
-    ticket
-);
-
-//Create Passenger
-const passenger = new Passenger("P123");
-
-// Create an instance of the Tag class
-const tag = new Tag("1", "Kea Tag", "It is small");
-
-// Attendant
-const attendant = new Attendant(
-    "A001",
-    "Cabin Crew",
-    "Cambodia, USA",
-    "Senior",
-    "BOUR",
-    "SONGHA",
-    19,
-    "Male",
-    "123 Main St",
-    "66-980-232",
-    "boursonga@gmail.com"
-);
-
-// Co pilot
-const coPilot = new CoPilot("C001", "5 years", "Excellent", "123456", "Training Record", "Sophanha", "Sin", 23, "Male", "123 Main St", "16-555-1234", "sophanha@gamil.com");
-
-// Pilot
-const pilot = new Pilot("P001", "10 years", "Captain", "A789012", "Aircraft Type", "Jane", "Smith", 35, "Female", "456 Elm St", "12-555-5678", "jane.smith@gmail.com");
-
-console.log(attendant);
 
