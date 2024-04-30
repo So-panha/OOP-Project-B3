@@ -1,11 +1,17 @@
-import { Person } from "./Person";
+import { Person } from './Person';
 
 export class Customer extends Person {
-    private customerId : number;
-    constructor(customerId : number, first_name : string, last_name : string, age : number, email : string, tel : string) {
-        super(first_name,last_name, age,email,tel);
-        this.customerId = customerId;
-    } 
-    
-}                 
+  private customer_id: string;
 
+  constructor(customer_id: string,
+    firstName: string,
+    lastName: string,
+    age: number,
+    gender: string,
+    address: string,
+    phone: string,
+    email: string) {
+    super(firstName, lastName, age, gender, address);
+    this.customer_id = customer_id;
+  }
+}
