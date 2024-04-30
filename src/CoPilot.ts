@@ -17,4 +17,7 @@ export class CoPilot extends Person {
     this.licenses_number = licenses_number;
     this.training_record = training_record;
   }
+  getFullName(): string {
+    return `${this.first_name} ${this.last_name}`;
+  }
 }

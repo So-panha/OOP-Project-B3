@@ -72,4 +72,5 @@ searchFlight.getFlight();
 
 // console.log(searchFlight.getFlight());
 // console.log(result_flights);
+console.log(attendant);
 
