@@ -4,11 +4,11 @@ import { Flight } from "./Flight";
 import { SearchFlight } from "./search_flight";
 
 export class Airports {
-  private searchFlights:  SearchFlight;
+  private search_flight?: SearchFlight[] = [];
   private airline: Airlines[] = [];
   private flights: Flight[] = [];
   //   private airline: Airlines;
-  constructor(private name: string,private address: Address) {}
+  constructor(private name: string, private address: Address) { }
 
   // Add airline
   addAirline(airline: Airlines): void {
@@ -20,9 +20,21 @@ export class Airports {
     this.flights.push(flight);
   }
 
-  // Get all flighs
-  getFlights(): Flight[] {
-    return this.flights;
+  // Add search
+  addSearch(search: SearchFlight): void {
+    this.search_flight?.push(search);
   }
 
+  // Get all flighs
+  getFlights(): Flight[] {
+    const result: Flight[] = [];
+    this.flights.forEach(flight => {
+      this.search_flight?.forEach(search => {
+        if (flight.getFlight() === search.getKeySearches()) {
+          result.push(flight);
+        }
+      });
+    });
+    return result;
+  }
 }

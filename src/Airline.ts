@@ -4,6 +4,9 @@ import { Airplane } from "./Airplane";
 import { Flight } from "./Flight";
 
 export class Airlines {
+    static push(flight: Flight) {
+        throw new Error("Method not implemented.");
+    }
     // private route : string;
     // private employees : string;
     private flight : Flight[] = [];
