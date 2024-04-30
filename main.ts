@@ -10,9 +10,12 @@ import {Ticket } from "./src/Ticket";
 import {Booking } from "./src/Booking";
 import {Passenger} from "./src/Passenger";
 import {Tag } from "./src/Tag";
+import { Attendant } from './src/Attendant';
+import { CoPilot } from './src/CoPilot';
+import { Pilot } from './src/Pilot';
 
 // Customers
-const customer = new Customer(1,"Sopanha","Sin",21,"Sopanha@gmail.com","+855 71 32 03 852");
+const customer = new Customer("A001","Sopanha","Sin",21,"Sopanha@gmail.com","+855 71 32 03 852","nice","nice");
 
 const addressAirport = new Address("Phnom Penh","Cambodia",12000);
 
@@ -56,6 +59,22 @@ const passenger = new Passenger("P123");
 const tag = new Tag("1", "Kea Tag", "It is small");
 
 
+const attendant = new Attendant(
+  "A001",
+  "Cabin Crew",
+  "Cambodia, USA",
+  "Senior",
+  "BOUR",
+  "SONGHA",
+  19,
+  "Male",
+  "123 Main St",
+  "66-980-232",
+  "boursonga@gmail.com"
+);
+const coPilot = new CoPilot("C001", "5 years", "Excellent", "123456", "Training Record", "Sophanha", "Sin", 23, "Male", "123 Main St", "16-555-1234", "sophanha@gamil.com");
+const pilot = new Pilot("P001", "10 years", "Captain", "A789012", "Aircraft Type", "Jane", "Smith", 35, "Female", "456 Elm St", "12-555-5678", "jane.smith@gmail.com");
+
 // Add airline to airplane
 airplane1.addAirline(angkorAirLine);
 
@@ -76,4 +95,5 @@ searchFlight.getFlight();
 
 // console.log(searchFlight.getFlight());
 // console.log(result_flights);
+console.log(attendant);
 
