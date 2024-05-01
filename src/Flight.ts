@@ -1,5 +1,5 @@
 import { Airlines } from "./Airline";
-import { CoPilot } from "./CoPilot";
+// import { CoPilot } from "./CoPilot";
 
 
 export class Flight {
