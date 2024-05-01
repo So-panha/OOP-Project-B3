@@ -1,14 +1,19 @@
+import { Address } from "./Address";
 import { Booking } from "./Booking";
-import { Airlines } from "./Airline";
+import { Person } from "./Person";
 
-export class Passenger{
+export class Passenger extends Person {
     private passenger_id: string;
-    private airline: Airlines[] = [];
     private booking: Booking[] = [];
-    constructor(passenger_id: string){
+    constructor(passenger_id: string, firstName: string, lastName: string, age: number, gender: string, email: string, tel: string, address: Address){
+        super(firstName, lastName, age, gender, email, tel, address);
         this.passenger_id = passenger_id;
     }
     getPassengerId(): string{
         return this.passenger_id;
+    }
+
+    addBooking(booking: Booking){
+        this.booking.push(booking);
     }
 }

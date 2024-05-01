@@ -76,10 +76,7 @@ airport1.addSearch(searchFlight1);
 airport1.addSearch(searchFlight2)
 
 // Get search
-console.log(airport1.getFlights());
-
-
-
+// console.log(airport1.getFlights());
 
 // Feature booking
 
@@ -88,14 +85,36 @@ const addressCustomer1 = new Address("Phnom Penh", "Cambodia", 12000);
 
 // Customers
 const customer1 = new Customer("A001", "Sopanha", "Sin", 21, "male", "+855 71 32 03 852", "Sopanha@gmail.com", addressCustomer1);
-// console.log(customer1);
+
+// Address
+const addressDara = new Address("Kompong Speu","Cambodia",1100);
+const addressChampa = new Address("Takeo","Cambodia",1400);
+const addressMina = new Address("Phnom Penh","Cambodia",12001);
+
+// Passenger
+const Dara = new Passenger("001","Dara","Tim",20,"male","+855 96 432 784","dara@gmail.com", addressDara);
+const Champa = new Passenger("002","Champa","Vorn",18,"female","+855 92 322 554","champa@gmail.com", addressChampa);
+const Mina = new Passenger("003","Mina","So",19,"female","+855 81 421 454","Mina@gmail.com", addressMina);
+
 
 // Booking 
-const bookflight1 = new Booking("f1h1","001");
+const bookflight1 = new Booking("H1452","001",airport1.getFlights(),airport1.getFlights());
+
+// Add customer on booking
 bookflight1.addCustomer(customer1);
+
+// Add passenger on each booking
+bookflight1.addPassenger(Dara);
+bookflight1.addPassenger(Champa);
+bookflight1.addPassenger(Mina);
+
+// Add booking to each passenger
+Dara.addBooking(bookflight1);
+Champa.addBooking(bookflight1);
+Mina.addBooking(bookflight1);
+
+// log the booking
 console.log(bookflight1);
-
-
 // //Create ticket
 // const ticket = new Ticket("KPC tickets", 100);
 
