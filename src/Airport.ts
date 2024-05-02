@@ -2,8 +2,10 @@ import { Airlines } from "./Airline";
 import { Address } from "./Address";
 import { Flight } from "./Flight";
 import { SearchFlight } from "./search_flight";
+import { Booking } from "./Booking";
 
 export class Airports {
+  private bookings: Booking[] = [];
   private search_flight?: SearchFlight[] = [];
   private airline: Airlines[] = [];
   private flights: Flight[] = [];
@@ -34,6 +36,22 @@ export class Airports {
           result.push(flight);
         }
       });
+    });
+    return result;
+  }
+
+  // Add booking in to airport
+  addbooking(booking : Booking){
+    this.bookings.push(booking);
+  }
+
+  // Get details from booking information
+  getDetailBookings(booking_reference: string): Booking[] {
+    const result: Booking[] = [];
+    this.bookings.forEach(booking => {
+      if (booking.getBookingReference() === booking_reference) {
+        result.push(booking);
+      }
     });
     return result;
   }

@@ -10,6 +10,7 @@ import { Ticket } from "./src/Ticket";
 import { Booking } from "./src/Booking";
 import { Passenger } from "./src/Passenger";
 import { Tag } from "./src/Tag";
+import { Baggage } from "./src/Baggage";
 // import { Attendant } from './src/Attendant';
 // import { CoPilot } from './src/CoPilot';
 // import { Pilot } from './src/Pilot';
@@ -91,10 +92,26 @@ const addressDara = new Address("Kompong Speu","Cambodia",1100);
 const addressChampa = new Address("Takeo","Cambodia",1400);
 const addressMina = new Address("Phnom Penh","Cambodia",12001);
 
+
+
 // Passenger
 const Dara = new Passenger("001","Dara","Tim",20,"male","+855 96 432 784","dara@gmail.com", addressDara);
 const Champa = new Passenger("002","Champa","Vorn",18,"female","+855 92 322 554","champa@gmail.com", addressChampa);
 const Mina = new Passenger("003","Mina","So",19,"female","+855 81 421 454","Mina@gmail.com", addressMina);
+
+// tag of baggage
+const tag1 = new Tag("001","TLD");
+
+// Baggae
+const daraBaggage1 = new Baggage(Dara,10);
+const daraBaggage2 = new Baggage(Dara,5);
+
+daraBaggage1.setTag(tag1);
+daraBaggage2.setTag(tag1);
+
+// Add baggage to Dara 
+Dara.addBaggage(daraBaggage1);
+Dara.addBaggage(daraBaggage2);
 
 
 // Booking 
@@ -114,7 +131,14 @@ Champa.addBooking(bookflight1);
 Mina.addBooking(bookflight1);
 
 // log the booking
-console.log(bookflight1);
+// console.log(Dara);
+
+
+// Add book into airport
+airport1.addbooking(bookflight1);
+
+
+console.log(airport1.getDetailBookings("H1452"));
 // //Create ticket
 // const ticket = new Ticket("KPC tickets", 100);
 

@@ -23,6 +23,10 @@ export class Booking {
         this.passenger.push(passenger);
     }
 
+    getBookingReference(): string{
+        return this.booking_reference;
+    }
+
     // getTotalPrice(): number {
     //     return (
     //         this.departureTime.getHours() * 100 +
