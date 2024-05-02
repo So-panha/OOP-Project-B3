@@ -1,4 +1,4 @@
-enum Types{
+export enum Types{
     classes = "classes",
     flex = "flex",
     business = "business"
