@@ -1,19 +1,15 @@
 // Person
-import { Customer } from "./src/Customer";
-import { Airlines } from "./src/Airline";
-import { Airports } from "./src/Airport";
-import { Address } from "./src/Address";
-import { Airplane } from "./src/Airplane";
-import { SearchFlight } from "./src/search_flight";
-import { Flight } from "./src/Flight";
-import { Ticket } from "./src/Ticket";
-import { Booking } from "./src/Booking";
-import { Passenger } from "./src/Passenger";
-import { Tag } from "./src/Tag";
-import { Baggage } from "./src/Baggage";
-// import { Attendant } from './src/Attendant';
-// import { CoPilot } from './src/CoPilot';
-// import { Pilot } from './src/Pilot';
+import { Customer } from "./src/Booking/Customer";
+import { Airlines } from "./src/Flight/Airline";
+import { Airports } from "./src/Flight/Airport";
+import { Address } from "./src/Employees/Address";
+import { Airplane } from "./src/Flight/Airplane";
+import { Flight } from "./src/Flight/Flight";
+import { Ticket } from "./src/Booking/Ticket";
+import { Booking } from "./src/Booking/Booking";
+import { Passenger } from "./src/Booking/Passenger";
+import { Tag } from "./src/Flight/Tag";
+import { Baggage } from "./src/Flight/Baggage";
 
 // Feature flight
 
@@ -68,31 +64,16 @@ flight1.addAirline(BangKokAirLine);
 flight2.addAirline(angkorAirLine);
 flight3.addAirline(angkorAirLine);
 
-// Create searchFlight
-const searchFlight1 = new SearchFlight("Phnom Penh", "Takeo", "09/03/2024", "13/03/2024");
-const searchFlight2 = new SearchFlight("Takeo", "Phnom Penh", "13/03/2024", "14/03/2024");
-
-// Add airport to searchFlight
-airport1.addSearch(searchFlight1);
-airport1.addSearch(searchFlight2)
 
 // Get search
 // console.log(airport1.getFlights());
 
 // Feature booking
 
-// Customer address
-const addressCustomer1 = new Address("Phnom Penh", "Cambodia", 12000);
-
-// Customers
-const customer1 = new Customer("A001", "Sopanha", "Sin", 21, "male", "+855 71 32 03 852", "Sopanha@gmail.com", addressCustomer1);
-
 // Address
 const addressDara = new Address("Kompong Speu","Cambodia",1100);
 const addressChampa = new Address("Takeo","Cambodia",1400);
 const addressMina = new Address("Phnom Penh","Cambodia",12001);
-
-
 
 // Passenger
 const Dara = new Passenger("001","Dara","Tim",20,"male","+855 96 432 784","dara@gmail.com", addressDara);
@@ -107,38 +88,88 @@ const daraBaggage1 = new Baggage(Dara,10);
 const daraBaggage2 = new Baggage(Dara,5);
 
 daraBaggage1.setTag(tag1);
-daraBaggage2.setTag(tag1);
+daraBaggage2.setTag(tag1);      
 
 // Add baggage to Dara 
-Dara.addBaggage(daraBaggage1);
-Dara.addBaggage(daraBaggage2);
+// Dara.addBaggage(daraBaggage1);
+// Dara.addBaggage(daraBaggage2);
 
 
-// Booking 
-const bookflight1 = new Booking("H1452","001",airport1.getFlights(),airport1.getFlights());
-
-// Add customer on booking
-bookflight1.addCustomer(customer1);
-
-// Add passenger on each booking
-bookflight1.addPassenger(Dara);
-bookflight1.addPassenger(Champa);
-bookflight1.addPassenger(Mina);
-
-// Add booking to each passenger
-Dara.addBooking(bookflight1);
-Champa.addBooking(bookflight1);
-Mina.addBooking(bookflight1);
-
-// log the booking
-// console.log(Dara);
 
 
-// Add book into airport
-airport1.addbooking(bookflight1);
 
 
-console.log(airport1.getDetailBookings("H1452"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // //Create ticket
 // const ticket = new Ticket("KPC tickets", 100);
 
@@ -181,3 +212,28 @@ console.log(airport1.getDetailBookings("H1452"));
 
 // console.log(attendant);
 
+// Booking  
+// const bookflight1 = new Booking("H1452",airport1.getFlights(),airport1.getFlights());
+
+// // Add customer on booking
+// bookflight1.addCustomer(customer1);
+
+// // Add passenger on each booking
+// bookflight1.addPassenger(Dara);
+// bookflight1.addPassenger(Champa);
+// bookflight1.addPassenger(Mina);
+
+// // Add booking to each passenger
+// Dara.addBooking(bookflight1);
+// Champa.addBooking(bookflight1);
+// Mina.addBooking(bookflight1);
+
+// // log the booking
+// // console.log(Dara);
+
+
+// // Add book into airport
+// airport1.addbooking(bookflight1);
+
+
+// console.log(airport1.getDetailBookings("H1452"));

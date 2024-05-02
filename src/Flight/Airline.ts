@@ -1,4 +1,4 @@
-import { Address } from "./Address";
+import { Address } from "../Employees/Address";
 import { Airports } from "./Airport";
 import { Airplane } from "./Airplane";
 import { Flight } from "./Flight";
