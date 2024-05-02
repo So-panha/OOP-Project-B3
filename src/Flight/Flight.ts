@@ -1,7 +1,6 @@
 import { Airlines } from "./Airline";
 import { DepartureTime } from "./DepartureTimeFlight";
 
-
 export class Flight {
     private airline: Airlines[] = [];;
     constructor(private flight_number: string, private origin: string, private destination: string, private DepartureTime: DepartureTime) {
@@ -12,6 +11,9 @@ export class Flight {
         this.airline.push(airline);
     }
 
-
+    // Get flight 
+    getFlightNumber() {
+        return this.flight_number;
+    }
     
 }

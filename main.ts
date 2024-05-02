@@ -13,7 +13,7 @@ import { DepartureTime } from "./src/Flight/DepartureTimeFlight";
 import { Gate } from "./src/Gate";
 import { Types } from "./src/Type";
 import { Seat } from "./src/Seat";
-import { TypeTicket } from "./src/Booking/Type_ticket";
+import { TypeTicket } from "./src/Booking/type_ticket";
 import { Trip } from "./src/Trip";
 import { typeOfMeals } from "./src/Flight/Meal";
 import { Booking } from "./src/Booking/Booking";
@@ -103,8 +103,8 @@ const Mina = new Passenger("003","Mina","So",19,"female","+855 81 421 454","Mina
 const tag1 = new Tag("001","TLD");
 
 // Baggae
-const daraBaggage1 = new Baggage(Dara,10);
-const daraBaggage2 = new Baggage(Dara,5);
+const daraBaggage1 = new Baggage(10);
+const daraBaggage2 = new Baggage(5);
 
 daraBaggage1.setTag(tag1);
 daraBaggage2.setTag(tag1);      
@@ -121,10 +121,25 @@ const ticket1 = new Ticket("001",TypeTicket.one_way,flight1,seat1,gate1,typeOfMe
 const trip1 = new Trip();
 trip1.addTicket(ticket1);
 trip1.addPassenger(Dara);
+trip1.addBaggage(daraBaggage1);
+trip1.addBaggage(daraBaggage2);
 
 // Create booking 
 const booking1 = new Booking("AFR123");
 booking1.addTrip(trip1)
+
+//  add booking to the airport
+airport1.addBooking(booking1);
+// console.log(airport1);
+
+// Feature get detail infor form booking reference
+airport1.getDetailInfor("AFR123");
+
+console.log(airport1.getDetailInfor("AFR123"));
+
+
+
+
 
 
 

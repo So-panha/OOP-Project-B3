@@ -1,12 +1,16 @@
 import { Airlines } from "./Airline";
 import { Address } from "../Employees/Address";
 import { Flight } from "./Flight";
+import { Booking } from "../Booking/Booking";
+import { Baggage } from "./Baggage";
+import { Passenger } from "../Booking/Passenger";
 
 export class Airports {
   private airline: Airlines[] = [];
   private flights: Flight[] = [];
+  private bookings: Booking[] = [];
   //   private airline: Airlines;
-  constructor(private name: string, private address: Address) { }
+  constructor(private name: string, private address: Address) {}
 
   // Add airline
   addAirline(airline: Airlines): void {
@@ -18,4 +22,30 @@ export class Airports {
     this.flights.push(flight);
   }
 
+  // Add booking
+  addBooking(booking: Booking): void {
+    this.bookings.push(booking);
+  }
+
+  // Get details information of flight from booking reference
+  getDetailInfor(booking_reference: string): (Flight | Baggage | Passenger)[]  {
+    const bookInfor:  (Flight | Baggage | Passenger)[] = [];
+    const flights : Flight[] = [];
+  
+    this.bookings.forEach((booking) => {
+
+      if (booking.getBookingReference() === booking_reference) {
+        const tickets = booking.getTrip().getTickets();
+        const passengers = booking.getTrip().getPassengers();
+        const baggages = booking.getTrip().getBaggages();
+
+        tickets.forEach((ticket) => {
+          flights.push(ticket.getFlight());
+        });
+
+        bookInfor.push( ...flights, ...baggages, ...passengers );
+      }
+    });
+    return bookInfor;
+  }
 }
