@@ -1,4 +1,5 @@
 // Person
+<<<<<<< HEAD
 import { Customer } from "./src/Booking/Customer";
 import { Airlines } from "./src/Flight/Airline";
 import { Airports } from "./src/Flight/Airport";
@@ -10,6 +11,26 @@ import { Booking } from "./src/Booking/Booking";
 import { Passenger } from "./src/Booking/Passenger";
 import { Tag } from "./src/Flight/Tag";
 import { Baggage } from "./src/Flight/Baggage";
+=======
+import { Customer } from "./src/Customer";
+import { Airlines } from "./src/Airline";
+import { Airports } from "./src/Airport";
+import { Address } from "./src/Address";
+import { Airplane } from "./src/Airplane";
+import { SearchFlight } from "./src/search_flight";
+import { Flight } from "./src/Flight";
+import { Ticket } from "./src/Ticket";
+import { Booking } from "./src/Booking";
+import { Passenger } from "./src/Passenger";
+import { Tag } from "./src/Tag";
+import { Baggage } from "./src/Baggage";
+import { typeOfMeals } from"./src/Meal";
+import { Types } from "./src/Type";
+import { Seat } from "./src/Seat";
+// import { Attendant } from './src/Attendant';
+// import { CoPilot } from './src/CoPilot';
+// import { Pilot } from './src/Pilot';
+>>>>>>> 40188f8f809660fd434574097721281849872fea
 
 // Feature flight
 

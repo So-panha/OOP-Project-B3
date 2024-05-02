@@ -1,4 +1,4 @@
-enum typeOfMeals{
+export enum typeOfMeals{
     baby = "baby",
     bland = "bland",
     child = "child",
