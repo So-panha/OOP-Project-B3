@@ -1,13 +1,13 @@
 import { Types } from "./Type";
 export class Seat {
-    private seatNumber: number;
+    private seatNumber: string;
     private seatType: Types;
 
-    constructor(seatNumber: number, seatType: Types) {
+    constructor(seatNumber: string, seatType: Types) {
         this.seatNumber = seatNumber;
         this.seatType = seatType;
     }
-    getSeatNumber(): number {
+    getSeatNumber(): string {
         return this.seatNumber;
     }
     getSeatType(): Types {

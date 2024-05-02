@@ -1,15 +1,22 @@
 // Person
-import { Customer } from "./src/Booking/Customer";
 import { Airlines } from "./src/Flight/Airline";
 import { Airports } from "./src/Flight/Airport";
 import { Address } from "./src/Employees/Address";
 import { Airplane } from "./src/Flight/Airplane";
 import { Flight } from "./src/Flight/Flight";
 import { Ticket } from "./src/Booking/Ticket";
-import { Booking } from "./src/Booking/Booking";
+// import { Booking } from "./src/Booking/Booking";
 import { Passenger } from "./src/Booking/Passenger";
 import { Tag } from "./src/Flight/Tag";
 import { Baggage } from "./src/Flight/Baggage";
+import { DepartureTime } from "./src/Flight/DepartureTimeFlight";
+import { Gate } from "./src/Gate";
+import { Types } from "./src/Type";
+import { Seat } from "./src/Seat";
+import { TypeTicket } from "./src/Booking/Type_ticket";
+import { Trip } from "./src/Trip";
+import { typeOfMeals } from "./src/Flight/Meal";
+import { Booking } from "./src/Booking/Booking";
 
 // Feature flight
 
@@ -33,18 +40,27 @@ const BangKokAirLine = new Airlines("Bangkok", "RI5655", "+856 12 88 434", "Bang
 const airplane1 = new Airplane("Angkor", "BR1543", "");
 const airplane2 = new Airplane("Bangkok", "UI6675", "");
 
-// Create flight
-
-// departure time flight
-const departureTimeFlight1 = new depar
-
-const flight1 = new Flight("Phnom Penh", "Siem Reab", "28/02/2024", "02/03/2024");
-const flight2 = new Flight("Phnom Penh", "Takeo", "09/03/2024", "13/03/2024");
-const flight3 = new Flight("Takeo", "Phnom Penh", "13/03/2024", "14/03/2024");
 
 // Add airline to airplane
 airplane1.addAirline(angkorAirLine);
 airplane2.addAirline(BangKokAirLine);
+
+// departure time flight
+const departureTimeFlight1 = new DepartureTime("28/02/2024", "02/03/2024");
+const departureTimeFlight2 = new DepartureTime("09/03/2024", "13/03/2024");
+const departureTimeFlight3 = new DepartureTime("13/03/2024", "14/03/2024");
+
+// Create flight
+const flight1 = new Flight("G3424","Phnom Penh", "Siem Reab", departureTimeFlight1);
+const flight2 = new Flight("FR432","Phnom Penh", "Takeo", departureTimeFlight2);
+const flight3 = new Flight("PM563","Takeo", "Phnom Penh", departureTimeFlight3);
+
+// Create gate
+const gate1 = new Gate("GMD53","open","ground floor")
+const gate2 = new Gate("GH673","open","first floor")
+const gate3 = new Gate("UID83","open","second floor")
+
+
 
 // Add airport to airline
 angkorAirLine.addAirport(airport1);
@@ -68,10 +84,10 @@ flight2.addAirline(angkorAirLine);
 flight3.addAirline(angkorAirLine);
 
 
-// Get search
-// console.log(airport1.getFlights());
-
 // Feature booking
+
+// Create seat
+const seat1 = new Seat("D13",Types.classes);
 
 // Address
 const addressDara = new Address("Kompong Speu","Cambodia",1100);
@@ -97,6 +113,18 @@ daraBaggage2.setTag(tag1);
 // Dara.addBaggage(daraBaggage1);
 // Dara.addBaggage(daraBaggage2);
 
+// Create ticket
+const ticket1 = new Ticket("001",TypeTicket.one_way,flight1,seat1,gate1,typeOfMeals.baby);
+// console.log(ticket1);
+
+// Create trip
+const trip1 = new Trip();
+trip1.addTicket(ticket1);
+trip1.addPassenger(Dara);
+
+// Create booking 
+const booking1 = new Booking("AFR123");
+booking1.addTrip(trip1)
 
 
 
