@@ -1,23 +1,30 @@
-// import { Person } from './Person';
+import { Address } from './Address';
+import { Employee } from './Employee';
 
-// export class CoPilot extends Person {
-//   private coPilot_id: string;
-//   private experience: string;
-//   private rankings: string;
-//   private licenses_number: string;
-//   private training_record: string;
 
-//   constructor(coPilot_id: string, experience: string, rankings: string,
-//     licenses_number: string, training_record: string, firstName: string, lastName: string,
-//     age: number, gender: string, address: string, phone: string, email: string) {
-//     super(firstName, lastName, age, gender, address,);
-//     this.coPilot_id = coPilot_id;
-//     this.experience = experience;
-//     this.rankings = rankings;
-//     this.licenses_number = licenses_number;
-//     this.training_record = training_record;
-//   }
-//   getFullName(): string {
-//     return `${this.first_name} ${this.last_name}`;
-//   }
-// }
+export class CoPilot extends Employee {
+   
+  private coPilot_id: string;
+  protected experience: number;
+  private rankings: string;
+  private licenses_number: string;
+  private training_record: string;
+    first_name: any;
+    last_name: any;
+
+  constructor(coPilot_id: string, experience: number, rankings: string,
+    licenses_number: string, training_record: string, salary : number, firstName: string, lastName: string, age: number, gender: string, email: string, tel: string, address: Address ) {
+    super(salary, experience, firstName, lastName, age, gender, email, tel, address);
+    this.coPilot_id = coPilot_id;
+    this.experience = experience;
+    this.rankings = rankings;
+    this.licenses_number = licenses_number;
+    this.training_record = training_record;
+  }
+  getFullName(): string {
+    return `${this.first_name} ${this.last_name}`;
+  }
+  getSalary(): number {
+    throw new Error('Method not implemented.');
+}
+}

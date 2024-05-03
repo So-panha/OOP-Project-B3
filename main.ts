@@ -17,6 +17,20 @@ import { TypeTicket } from "./src/Booking/type_ticket";
 import { Trip } from "./src/Trip";
 import { typeOfMeals } from "./src/Flight/Meal";
 import { Booking } from "./src/Booking/Booking";
+import { Pilot } from "./src/Employees/Pilot";
+import { CoPilot } from "./src/Employees/CoPilot";
+
+
+// co-pilot
+const addressCo = new Address("London", "UK", 12);
+const coPilot = new CoPilot("CP023",30,"First Officer","124 456 899","Training Record",7000,"Naraka","Devop",30,"Male","naraka.dovop@gmail.com","88-456-7890", addressCo);
+console.log(coPilot);
+
+
+// Pilot 
+const address = new Address("Phnom Penh", "Cambodia", 11,);
+const pilot = new Pilot("P011","Boeing 747",5000,10,"BOUR","KLAN",19,"Male","bour.klan.web@gmail.com","66-980-232",address);
+// console.log(pilot);
 
 // Feature flight
 
@@ -135,7 +149,7 @@ airport1.addBooking(booking1);
 // Feature get detail infor form booking reference
 airport1.getDetailInfor("AFR123");
 
-console.log(airport1.getDetailInfor("AFR123"));
+// console.log(airport1.getDetailInfor("AFR123"));
 
 
 
