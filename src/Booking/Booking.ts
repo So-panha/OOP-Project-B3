@@ -1,4 +1,4 @@
-import { Trip } from "../Trip";
+import { Trip } from "../Flight/Trip";
 
 export class Booking {
     private trip : Trip;

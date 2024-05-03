@@ -1,8 +1,8 @@
-import { Ticket } from "./Booking/Ticket";
-import { Passenger } from "./Booking/Passenger";
-import { Baggage } from "./Flight/Baggage";
-import { DepartureDate } from "./Flight/DepartureDateFlight";
-import { Gate } from "./Gate";
+import { Ticket } from "../Booking/Ticket";
+import { Passenger } from "../Passenger/Passenger";
+import { Baggage } from "./Baggage";
+import { DepartureDate } from "./DepartureDateFlight";
+import { Gate } from "../Booking/Gate";
 
 export class Trip {
   private tickets: Ticket[] = [];

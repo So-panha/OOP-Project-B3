@@ -3,12 +3,14 @@ import { Address } from "../Employees/Address";
 import { Flight } from "./Flight";
 import { Booking } from "../Booking/Booking";
 import { Baggage } from "./Baggage";
-import { Passenger } from "../Booking/Passenger";
+import { Passenger } from "../Passenger/Passenger";
+import { Gate } from "../Booking/Gate";
 
 export class Airports {
   private airline: Airlines[] = [];
   private flights: Flight[] = [];
   private bookings: Booking[] = [];
+  private gates: Gate[] = [];
   //   private airline: Airlines;
   constructor(private name: string, private address: Address) {}
 
@@ -25,6 +27,11 @@ export class Airports {
   // Add booking
   addBooking(booking: Booking): void {
     this.bookings.push(booking);
+  }
+
+  // Add gate
+  addGate(gate: Gate): void {
+    this.gates.push(gate);
   }
 
   // Get details information of flight from booking reference

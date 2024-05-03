@@ -5,16 +5,16 @@ import { Address } from "./src/Employees/Address";
 import { Airplane } from "./src/Flight/Airplane";
 import { Flight } from "./src/Flight/Flight";
 import { Ticket } from "./src/Booking/Ticket";
-import { Passenger } from "./src/Booking/Passenger";
-import { Tag } from "./src/Flight/Tag";
+import { Passenger } from "./src/Passenger/Passenger";
+import { Tag } from "./src/Booking/Tag";
 import { Baggage } from "./src/Flight/Baggage";
 import { DepartureDate } from "./src/Flight/DepartureDateFlight";
-import { Gate } from "./src/Gate";
-import { Types } from "./src/Type";
-import { Seat } from "./src/Seat";
+import { Gate } from "./src/Booking/Gate";
+import { Types } from "./src/Booking/Type";
+import { Seat } from "./src/Booking/Seat";
 import { TypeTicket } from "./src/Booking/type_ticket";
-import { Trip } from "./src/Trip";
-import { typeOfMeals } from "./src/Flight/Meal";
+import { Trip } from "./src/Flight/Trip";
+import { typeOfMeals } from "./src/Booking/Meal";
 import { Booking } from "./src/Booking/Booking";
 import { Pilot } from "./src/Employees/Pilot";
 import { CoPilot } from "./src/Employees/CoPilot";
@@ -112,6 +112,11 @@ const seat1 = new Seat("D13",Types.classes);
 const seat2 = new Seat("E13",Types.business);
 const seat3 = new Seat("F13",Types.flex);
 
+// Add seat to airplane
+airplane1.addSeat(seat1);
+airplane1.addSeat(seat2);
+airplane1.addSeat(seat3);
+
 // Address
 const addressDara = new Address("Kompong Speu","Cambodia",1100);
 const addressChampa = new Address("Takeo","Cambodia",1400);
@@ -207,6 +212,13 @@ flight3.addAttendant(attendant1);
 flight2.addCoPilot(coPilot2);
 flight2.addPilot(pilot2);
 flight2.addAttendant(attendant2);
+
+
+// add gate to airport1
+airport1.addGate(gate1);
+airport1.addGate(gate2);
+airport1.addGate(gate3);
+
 
 // Add employee to airlines
 angkorAirLine.addEmployee(coPilot1);

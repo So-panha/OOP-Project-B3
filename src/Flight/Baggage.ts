@@ -1,4 +1,4 @@
-import { Tag } from "./Tag";
+import { Tag } from "../Booking/Tag";
 
 export class Baggage {
     private tags : Tag[] = [];
