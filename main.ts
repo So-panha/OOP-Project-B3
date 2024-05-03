@@ -28,8 +28,10 @@ const coPilot1 = new CoPilot("CP023",30,"First Officer","124 456 899","Training 
 const coPilot2 = new CoPilot("CP024",33,"First Officer","243 644 569","Training Record",5000,"Hanuman","Lyni",35,"Male","hanuman.lyni@gmail.com","66-886-9080", addressCo2);
 
 // Pilot 
-const address = new Address("Phnom Penh", "Cambodia", 11,);
-const pilot = new Pilot("P011","Boeing 747",5000,10,"BOUR","KLAN",19,"Male","bour.klan.web@gmail.com","66-980-232",address);
+const address1 = new Address("Phnom Penh", "Cambodia", 11);
+const address2 = new Address("Seim Reab", "Cambodia", 13);
+const pilot1 = new Pilot("P011","Boeing 747",3000,10,"BOUR","KLAN",19,"Male","bour.klan.web@gmail.com","66-980-232",address1);
+const pilot2 = new Pilot("P012","Boeing 747",3000,20,"Minea","Nik",27,"Male","minea.nik@gmail.com","90-890-322",address2);
 
 // Feature flight
 
@@ -41,8 +43,10 @@ const airport1 = new Airports("Puchentong", addressAirportd1);
 const airport2 = new Airports("Bangkok", addressAirport2);
 
 // attandent
-const addressAttendant = new Address("Seim Reab", "Cambodia",1);
-const attendant = new Attendant("A023","Phnom Penh","English, French, Cambodia","Senior",2500,3,"Naomi","Fare",25,"Female","naomi.fare@gmail.com","99-654-3210",addressAttendant);
+const addressAttendant1 = new Address("Seim Reab", "Cambodia",1);
+const addressAttendant2 = new Address("Banlung", "Cambodia",2);
+const attendant1 = new Attendant("A023","Phnom Penh","English, French, Cambodia","Senior",2500,3,"Naomi","Fare",25,"Female","naomi.fare@gmail.com","99-654-3210",addressAttendant1);
+const attendant2 = new Attendant("A023","Phnom Penh","English, Russian, Cambodia","Senior",2500,3,"Sarah","KLan",25,"Female","sarah.klan@gmail.com","88-545-2210",addressAttendant2);
 
 // adress airlines
 const addressAngkorAirLine = new Address("Phnom Penh", "Cambodia", 12000);
@@ -205,9 +209,12 @@ flight2.addPilot(pilot2);
 flight2.addAttendant(attendant2);
 
 // Add employee to airlines
-angkorAirLine.addEmployee(coPilot);
-angkorAirLine.addEmployee(pilot);
-angkorAirLine.addEmployee(attendant);
+angkorAirLine.addEmployee(coPilot1);
+angkorAirLine.addEmployee(coPilot2);
+angkorAirLine.addEmployee(pilot1);
+angkorAirLine.addEmployee(pilot2);
+angkorAirLine.addEmployee(attendant1);
+angkorAirLine.addEmployee(attendant2);
 
 
 // 1. As an airport controller, I need to get the full details of a passenger’s trip from their Booking Reference Number (flights, bags, customer information…)
