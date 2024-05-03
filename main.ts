@@ -170,16 +170,21 @@ airport1.addBooking(booking2);
 airport1.addBooking(booking3);
 // console.log(airport1);
 
-// Add ticket to the flight
+// // Add ticket to the flight
 flight1.addTicket(ticket1);
 flight1.addTicket(ticket2);
 flight1.addTicket(ticket3);
 
 // Feature get detail infor form booking reference
-// console.log(airport1.getDetailInfor("AFR123"));
+console.log(airport1.getDetailInfor("AFR123"));
 
 // Feature check ticket
 angkorAirLine.getCheckTicket("G3424");
+console.log(angkorAirLine.getCheckTicket("G3424"));
+
+// Check meal on flight
+console.log(angkorAirLine.getCheckMeal("G3424"));
+
 
 
 

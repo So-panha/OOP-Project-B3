@@ -22,5 +22,10 @@ export class Ticket {
         return this.passenger;
     }
 
+    // Get meal
+    getMeal():typeOfMeals{
+        return this.Meal;
+    }
+
 }
 

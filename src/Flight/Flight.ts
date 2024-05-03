@@ -26,7 +26,6 @@ export class Flight {
     getAllTickets(): Ticket[]{
         return this.tickets
     }
-
     
     
 }
