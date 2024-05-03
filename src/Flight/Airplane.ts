@@ -1,4 +1,5 @@
 import { Airlines } from "./Airline";
+// import {}
 export class Airplane {
     private airline: Airlines[] = [];
     constructor(private airplaneName : string, private regesterName : string, private model : string){}

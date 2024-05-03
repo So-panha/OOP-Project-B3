@@ -5,6 +5,8 @@ import { Flight } from "./Flight";
 import { Passenger } from "../Booking/Passenger";
 import { typeOfMeals } from "./Meal";
 import { Employee } from "../Employees/Employee";
+import { Pilot } from "../Employees/Pilot";
+import { DepartureDate } from "./DepartureDateFlight";
 
 export class Airlines {
     private employees: Employee[] = [];
@@ -63,7 +65,6 @@ export class Airlines {
         this.employees.push(employee);
     }
 
-
     // Get total salary
     getAllSalary(): number{
         let totalSalary = 0;
@@ -71,6 +72,17 @@ export class Airlines {
             totalSalary += employee.getSalary();
         });
         return totalSalary;
+    }
+
+    // Get flight 
+    getFlightByPilot(pilot: Pilot, date: DepartureDate): Flight[]{
+        const flights: Flight[] = [];
+        this.flights.forEach(flight => {
+            if(flight.getDepartureTime().getDepartureDateStart() === date.getDepartureDateStart() && flight.getDepartureTime().getDepartureDateEnd() === date.getDepartureDateEnd() && pilot.getId() === flight.getPilot().getId()){
+                flights.push(flight);
+            }
+        });
+        return this.flights;
     }
 
 }                

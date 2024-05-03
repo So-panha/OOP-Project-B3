@@ -5,11 +5,10 @@ import { Address } from "./src/Employees/Address";
 import { Airplane } from "./src/Flight/Airplane";
 import { Flight } from "./src/Flight/Flight";
 import { Ticket } from "./src/Booking/Ticket";
-// import { Booking } from "./src/Booking/Booking";
 import { Passenger } from "./src/Booking/Passenger";
 import { Tag } from "./src/Flight/Tag";
 import { Baggage } from "./src/Flight/Baggage";
-import { DepartureTime } from "./src/Flight/DepartureTimeFlight";
+import { DepartureDate } from "./src/Flight/DepartureDateFlight";
 import { Gate } from "./src/Gate";
 import { Types } from "./src/Type";
 import { Seat } from "./src/Seat";
@@ -59,15 +58,14 @@ const airplane1 = new Airplane("Angkor", "BR1543", "");
 const airplane2 = new Airplane("Bangkok", "UI6675", "");
 
 
-
 // Add airline to airplane
 airplane1.addAirline(angkorAirLine);
 airplane2.addAirline(BangKokAirLine);
 
 // departure time flight
-const departureTimeFlight1 = new DepartureTime("28/02/2024", "02/03/2024");
-const departureTimeFlight2 = new DepartureTime("09/03/2024", "13/03/2024");
-const departureTimeFlight3 = new DepartureTime("13/03/2024", "14/03/2024");
+const departureTimeFlight1 = new DepartureDate("28/02/2024", "02/03/2024");
+const departureTimeFlight2 = new DepartureDate("09/03/2024", "13/03/2024");
+const departureTimeFlight3 = new DepartureDate("13/03/2024", "14/03/2024");
 
 // Create flight
 const flight1 = new Flight("G3424","Phnom Penh", "Siem Reab", departureTimeFlight1);
@@ -86,8 +84,8 @@ BangKokAirLine.addAirport(airport2);
 
 // Add flight to the airline
 angkorAirLine.addFlight(flight1);
-angkorAirLine.addFlight(flight2);
-BangKokAirLine.addFlight(flight3);
+// angkorAirLine.addFlight(flight2);
+// BangKokAirLine.addFlight(flight3);
 
 // Add airline to airport
 airport1.addAirline(angkorAirLine);
@@ -104,8 +102,7 @@ flight2.addAirline(angkorAirLine);
 flight3.addAirline(angkorAirLine);
 
 
-// Feature booking
-
+// Feature bookin
 // Create seat
 const seat1 = new Seat("D13",Types.classes);
 const seat2 = new Seat("E13",Types.business);
@@ -150,7 +147,6 @@ MinaBaggage2.setTag(tag3);
 const ticket1 = new Ticket("001",TypeTicket.round_trip,flight1,seat1,gate1,typeOfMeals.low_sodium_noSalt,Dara);
 const ticket2 = new Ticket("002",TypeTicket.round_trip,flight1,seat2,gate1,typeOfMeals.gluten_free,Champa);
 const ticket3 = new Ticket("003",TypeTicket.one_way,flight1,seat3,gate1,typeOfMeals.baby,Mina);
-// console.log(ticket1);
 
 // Create trip
 const trip1 = new Trip();
@@ -192,6 +188,11 @@ flight1.addTicket(ticket1);
 flight1.addTicket(ticket2);
 flight1.addTicket(ticket3);
 
+// Add employee to flight
+flight1.addCoPilot(coPilot);
+flight1.addPilot(pilot);
+flight1.addAttendant(attendant);
+
 
 // Add employee to airlines
 angkorAirLine.addEmployee(coPilot);
@@ -199,17 +200,26 @@ angkorAirLine.addEmployee(pilot);
 angkorAirLine.addEmployee(attendant);
 
 
-// // Feature get detail infor form booking reference
+// 1. As an airport controller, I need to get the full details of a passenger’s trip from their Booking Reference Number (flights, bags, customer information…)
 console.log(airport1.getDetailInfor("AFR123"));
 
-// // Feature check ticket
+// 2. As an airline manager, I want to know for a given flight, how many passengers have return tickets.
 console.log(angkorAirLine.getCheckTicket("G3424"));
 
-// // Check meal on flight
+// 3. As an airline pilot, I want to know, for a given date, how many flights I have to join.
+const date1 = new DepartureDate("28/02/2024", "02/03/2024");
+console.log(angkorAirLine.getFlightByPilot(pilot,date1));
+
+// 4. As an airline chef, I need to know, for a given flight, how many of each meal type I need to prepare
 console.log(angkorAirLine.getCheckMeal("G3424"));
 
-// Get all salary
+// 5. As an airline manager, I want to find out how much salary I pay all my employees.
 console.log(angkorAirLine.getAllSalary() + "$");
+
+// 6. As a passenger, I want to know which gate my plane is waiting at.
+console.log(trip1.getGateNumber("G3424",date1));
+
+
 
 
 

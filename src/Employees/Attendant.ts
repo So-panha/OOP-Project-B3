@@ -6,14 +6,15 @@ export class Attendant extends Employee {
   private department: string;
   private language_skills: string;
   private seniority: string;
+  coPilot_id: string;
 
   constructor(
     attendant_id: string,
     department: string,
     language_skills: string,
     seniority: string,
-    protected salary: number,
-    protected experience: number,
+    salary: number,
+    experience: number,
     firstName: string,
     lastName: string,
     age: number,
@@ -41,5 +42,9 @@ export class Attendant extends Employee {
   // Get salary
   getSalary(): number {
     return this.salary;
+  }
+  // get id attendant
+  getId(): string{
+    return this.attendant_id;
   }
 }

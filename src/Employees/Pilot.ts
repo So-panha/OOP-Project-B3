@@ -7,8 +7,8 @@ export class Pilot extends Employee {
     constructor(
         pilot_id: string,
         aircraft_type: string,
-        protected salary: number,
-        protected experience: number,
+        salary: number,
+        experience: number,
         firstName: string,
         lastName: string,
         age: number,
@@ -35,4 +35,10 @@ export class Pilot extends Employee {
     getSalary(): number {
         return this.salary;
     }
+
+    // Get pilot id
+    getId(): string{
+        return this.pilot_id;
+      }
+    
 }

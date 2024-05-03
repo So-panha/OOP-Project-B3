@@ -31,4 +31,9 @@ export class CoPilot extends Employee {
   getSalary(): number {
     return this.salary
   }   
+
+  // Get id 
+     getId(): string{
+    return this.coPilot_id;
+  }
 }

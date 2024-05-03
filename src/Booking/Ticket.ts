@@ -27,5 +27,10 @@ export class Ticket {
         return this.Meal;
     }
 
+    // Get gate
+    getGate():Gate{
+        return this.gate;
+    }
+
 }
 
