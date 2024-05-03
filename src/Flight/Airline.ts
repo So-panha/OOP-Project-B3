@@ -63,4 +63,14 @@ export class Airlines {
         this.employees.push(employee);
     }
 
+
+    // Get total salary
+    getAllSalary(): number{
+        let totalSalary = 0;
+        this.employees.forEach(employee => {
+            totalSalary += employee.getSalary();
+        });
+        return totalSalary;
+    }
+
 }                

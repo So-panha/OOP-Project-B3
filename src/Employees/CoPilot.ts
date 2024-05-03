@@ -21,10 +21,14 @@ export class CoPilot extends Employee {
     this.licenses_number = licenses_number;
     this.training_record = training_record;
   }
+
+  // Get full name 
   getFullName(): string {
     return `${this.first_name} ${this.last_name}`;
   }
+
+  // Get salary 
   getSalary(): number {
-    throw new Error('Method not implemented.');
-}
+    return this.salary
+  }   
 }
