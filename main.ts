@@ -19,18 +19,19 @@ import { typeOfMeals } from "./src/Flight/Meal";
 import { Booking } from "./src/Booking/Booking";
 import { Pilot } from "./src/Employees/Pilot";
 import { CoPilot } from "./src/Employees/CoPilot";
+import { Attendant } from "./src/Employees/Attendant";
 
 
 // co-pilot
 const addressCo = new Address("London", "UK", 12);
 const coPilot = new CoPilot("CP023",30,"First Officer","124 456 899","Training Record",7000,"Naraka","Devop",30,"Male","naraka.dovop@gmail.com","88-456-7890", addressCo);
-console.log(coPilot);
+// console.log(coPilot);
 
 
 // Pilot 
 const address = new Address("Phnom Penh", "Cambodia", 11,);
 const pilot = new Pilot("P011","Boeing 747",5000,10,"BOUR","KLAN",19,"Male","bour.klan.web@gmail.com","66-980-232",address);
-// console.log(pilot);
+console.log(pilot);
 
 // Feature flight
 
@@ -53,6 +54,11 @@ const BangKokAirLine = new Airlines("Bangkok", "RI5655", "+856 12 88 434", "Bang
 // Create airplane
 const airplane1 = new Airplane("Angkor", "BR1543", "");
 const airplane2 = new Airplane("Bangkok", "UI6675", "");
+
+// attandent
+const addressAttendant = new Address("Seim Reab", "Cambodia",1);
+const attendant = new Attendant("A023","Phnom Penh","English, French, Cambodia","Senior",2500,3,"Naomi","Fare",25,"Female","naomi.fare@gmail.com","99-654-3210",addressAttendant);
+console.log(attendant);
 
 
 // Add airline to airplane
