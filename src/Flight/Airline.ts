@@ -4,12 +4,9 @@ import { Airplane } from "./Airplane";
 import { Flight } from "./Flight";
 
 export class Airlines {
-    static push(flight: Flight) {
-        throw new Error("Method not implemented.");
-    }
     // private route : string;
     // private employees : string;
-    private flight : Flight[] = [];
+    private flights : Flight[] = [];
     private airplanes : Airplane[] = []; 
     private airport : Airports[] = [];
     constructor(private airlineName : string, private airlineCode : string, private airlineTel : string, private airlineEmail : string, private address: Address){}
@@ -26,8 +23,22 @@ export class Airlines {
 
     // Add flight to airline
     addFlight(flight: Flight) {
-        this.flight.push(flight);
+        this.flights.push(flight);
     }
 
+    // Get flight
+    getCheckTicket(flight_number : string): Flight[] {
+        this.flights.forEach(flight => {
+            if(flight.getFlightNumber() === flight_number){
+                const allTicket = flight.getAllTickets();
+                allTicket.forEach(ticket => {
+                    if(ticket.getTypeTicket() === "round_trip"){
+                        console.log(ticket.getPassenger());
+                    }
+                });
+            }
+        });
+        return this.flights;
+    }
 
 }                
