@@ -2,16 +2,15 @@ import { Address } from "../Employees/Address";
 import { Airports } from "./Airport";
 import { Airplane } from "./Airplane";
 import { Flight } from "./Flight";
+import { Passenger } from "../Booking/Passenger";
+import { typeOfMeals } from "./Meal";
 
 export class Airlines {
-    static push(flight: Flight) {
-        throw new Error("Method not implemented.");
-    }
-    // private route : string;
-    // private employees : string;
-    private flight : Flight[] = [];
+
+    private flights : Flight[] = [];
     private airplanes : Airplane[] = []; 
     private airport : Airports[] = [];
+    passengers: Passenger[];
     constructor(private airlineName : string, private airlineCode : string, private airlineTel : string, private airlineEmail : string, private address: Address){}
 
     // Add airports to airline
@@ -26,8 +25,37 @@ export class Airlines {
 
     // Add flight to airline
     addFlight(flight: Flight) {
-        this.flight.push(flight);
+        this.flights.push(flight);
     }
 
+    // Get flight
+    getCheckTicket(flight_number : string): Passenger[] {
+        const passengers : Passenger[] = [];
+        this.flights.forEach(flight => {
+            if(flight.getFlightNumber() === flight_number){
+                const allTicket = flight.getAllTickets();
+                allTicket.forEach(ticket => {
+                    if(ticket.getTypeTicket() === "round_trip"){
+                        passengers.push(ticket.getPassenger());
+                    }
+                });
+            }
+        });
+        return passengers;
+    }
+
+    //  Check meal on flight
+    getCheckMeal(flight_number : string): typeOfMeals[]{
+        const meals : typeOfMeals[] = [];
+        this.flights.forEach(flight => {
+            if(flight.getFlightNumber() === flight_number){
+                const allTicket = flight.getAllTickets();
+                allTicket.forEach(ticket => {
+                        meals.push(ticket.getMeal());
+                });
+            }            
+        });
+        return meals;
+    }
 
 }                

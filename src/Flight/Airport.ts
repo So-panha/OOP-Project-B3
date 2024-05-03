@@ -28,12 +28,10 @@ export class Airports {
   }
 
   // Get details information of flight from booking reference
-  getDetailInfor(booking_reference: string): (Flight | Baggage | Passenger)[]  {
-    const bookInfor:  (Flight | Baggage | Passenger)[] = [];
-    const flights : Flight[] = [];
-  
+  getDetailInfor(booking_reference: string): (Flight | Baggage | Passenger)[] {
+    const bookInfor: (Flight | Baggage | Passenger)[] = [];
+    const flights: Flight[] = [];
     this.bookings.forEach((booking) => {
-
       if (booking.getBookingReference() === booking_reference) {
         const tickets = booking.getTrip().getTickets();
         const passengers = booking.getTrip().getPassengers();
@@ -43,7 +41,7 @@ export class Airports {
           flights.push(ticket.getFlight());
         });
 
-        bookInfor.push( ...flights, ...baggages, ...passengers );
+        bookInfor.push(...flights, ...baggages, ...passengers);
       }
     });
     return bookInfor;

@@ -66,8 +66,8 @@ const departureTimeFlight3 = new DepartureTime("13/03/2024", "14/03/2024");
 
 // Create flight
 const flight1 = new Flight("G3424","Phnom Penh", "Siem Reab", departureTimeFlight1);
-const flight2 = new Flight("FR432","Phnom Penh", "Takeo", departureTimeFlight2);
-const flight3 = new Flight("PM563","Takeo", "Phnom Penh", departureTimeFlight3);
+const flight2 = new Flight("G3424","Phnom Penh", "Takeo", departureTimeFlight2);
+const flight3 = new Flight("G3424","Takeo", "Phnom Penh", departureTimeFlight3);
 
 // Create gate
 const gate1 = new Gate("GMD53","open","ground floor")
@@ -78,10 +78,13 @@ const gate3 = new Gate("UID83","open","second floor")
 
 // Add airport to airline
 angkorAirLine.addAirport(airport1);
-angkorAirLine.addFlight(flight1);
-
 BangKokAirLine.addAirport(airport2);
-BangKokAirLine.addFlight(flight2);
+
+
+// Add flight to the airline
+angkorAirLine.addFlight(flight1);
+angkorAirLine.addFlight(flight2);
+BangKokAirLine.addFlight(flight3);
 
 // Add airline to airport
 airport1.addAirline(angkorAirLine);
@@ -102,6 +105,8 @@ flight3.addAirline(angkorAirLine);
 
 // Create seat
 const seat1 = new Seat("D13",Types.classes);
+const seat2 = new Seat("E13",Types.business);
+const seat3 = new Seat("F13",Types.flex);
 
 // Address
 const addressDara = new Address("Kompong Speu","Cambodia",1100);
@@ -115,20 +120,33 @@ const Mina = new Passenger("003","Mina","So",19,"female","+855 81 421 454","Mina
 
 // tag of baggage
 const tag1 = new Tag("001","TLD");
+const tag2 = new Tag("002","TLD");
+const tag3 = new Tag("003","TLD");
 
 // Baggae
 const daraBaggage1 = new Baggage(10);
 const daraBaggage2 = new Baggage(5);
 
-daraBaggage1.setTag(tag1);
-daraBaggage2.setTag(tag1);      
+const ChampaBaggage1 = new Baggage(8);
+const ChampaBaggage2 = new Baggage(7);
 
-// Add baggage to Dara 
-// Dara.addBaggage(daraBaggage1);
-// Dara.addBaggage(daraBaggage2);
+const MinaBaggage1 = new Baggage(13);
+const MinaBaggage2 = new Baggage(2);
+
+// Add tag to baggages
+daraBaggage1.setTag(tag1);
+daraBaggage2.setTag(tag1);  
+
+ChampaBaggage1.setTag(tag2);
+ChampaBaggage2.setTag(tag2);
+
+MinaBaggage1.setTag(tag3);
+MinaBaggage2.setTag(tag3);
 
 // Create ticket
-const ticket1 = new Ticket("001",TypeTicket.one_way,flight1,seat1,gate1,typeOfMeals.baby);
+const ticket1 = new Ticket("001",TypeTicket.round_trip,flight1,seat1,gate1,typeOfMeals.low_sodium_noSalt,Dara);
+const ticket2 = new Ticket("002",TypeTicket.round_trip,flight1,seat2,gate1,typeOfMeals.gluten_free,Champa);
+const ticket3 = new Ticket("003",TypeTicket.one_way,flight1,seat3,gate1,typeOfMeals.baby,Mina);
 // console.log(ticket1);
 
 // Create trip
@@ -138,18 +156,51 @@ trip1.addPassenger(Dara);
 trip1.addBaggage(daraBaggage1);
 trip1.addBaggage(daraBaggage2);
 
+const trip2 = new Trip();
+trip2.addTicket(ticket2);
+trip2.addPassenger(Champa);
+trip2.addBaggage(ChampaBaggage1);
+trip2.addBaggage(ChampaBaggage2);
+
+const trip3 = new Trip();
+trip3.addTicket(ticket3);
+trip3.addPassenger(Mina);
+trip3.addBaggage(MinaBaggage1);
+trip3.addBaggage(MinaBaggage2);
+
 // Create booking 
 const booking1 = new Booking("AFR123");
 booking1.addTrip(trip1)
 
+const booking2 = new Booking("JGR533");
+booking2.addTrip(trip2)
+
+const booking3 = new Booking("JYU533");
+booking2.addTrip(trip3)
+
 //  add booking to the airport
 airport1.addBooking(booking1);
+airport1.addBooking(booking2);
+airport1.addBooking(booking3);
 // console.log(airport1);
 
-// Feature get detail infor form booking reference
-airport1.getDetailInfor("AFR123");
+// // Add ticket to the flight
+flight1.addTicket(ticket1);
+flight1.addTicket(ticket2);
+flight1.addTicket(ticket3);
 
 // console.log(airport1.getDetailInfor("AFR123"));
+// Feature get detail infor form booking reference
+console.log(airport1.getDetailInfor("AFR123"));
+
+// Feature check ticket
+angkorAirLine.getCheckTicket("G3424");
+console.log(angkorAirLine.getCheckTicket("G3424"));
+
+// Check meal on flight
+console.log(angkorAirLine.getCheckMeal("G3424"));
+
+
 
 
 
