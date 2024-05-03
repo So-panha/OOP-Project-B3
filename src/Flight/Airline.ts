@@ -4,9 +4,10 @@ import { Airplane } from "./Airplane";
 import { Flight } from "./Flight";
 import { Passenger } from "../Booking/Passenger";
 import { typeOfMeals } from "./Meal";
+import { Employee } from "../Employees/Employee";
 
 export class Airlines {
-
+    private employees: Employee[] = [];
     private flights : Flight[] = [];
     private airplanes : Airplane[] = []; 
     private airport : Airports[] = [];
@@ -56,6 +57,10 @@ export class Airlines {
             }            
         });
         return meals;
+    }
+
+    addEmployee(employee : Employee){
+        this.employees.push(employee);
     }
 
 }                

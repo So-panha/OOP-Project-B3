@@ -24,13 +24,11 @@ import { CoPilot } from "./src/Employees/CoPilot";
 // co-pilot
 const addressCo = new Address("London", "UK", 12);
 const coPilot = new CoPilot("CP023",30,"First Officer","124 456 899","Training Record",7000,"Naraka","Devop",30,"Male","naraka.dovop@gmail.com","88-456-7890", addressCo);
-console.log(coPilot);
 
 
 // Pilot 
 const address = new Address("Phnom Penh", "Cambodia", 11,);
 const pilot = new Pilot("P011","Boeing 747",5000,10,"BOUR","KLAN",19,"Male","bour.klan.web@gmail.com","66-980-232",address);
-// console.log(pilot);
 
 // Feature flight
 
@@ -189,16 +187,27 @@ flight1.addTicket(ticket1);
 flight1.addTicket(ticket2);
 flight1.addTicket(ticket3);
 
+
+// Add employee to airlines
+angkorAirLine.addEmployee(coPilot);
+angkorAirLine.addEmployee(pilot);
+
+console.log(angkorAirLine);
+
+// angkorAirLine.addEmployee(employee3);
+// angkorAirLine.addEmployee(employee4);
+// angkorAirLine.addEmployee(employee5);
+
 // console.log(airport1.getDetailInfor("AFR123"));
 // Feature get detail infor form booking reference
-console.log(airport1.getDetailInfor("AFR123"));
+// console.log(airport1.getDetailInfor("AFR123"));
 
-// Feature check ticket
-angkorAirLine.getCheckTicket("G3424");
-console.log(angkorAirLine.getCheckTicket("G3424"));
+// // Feature check ticket
+// angkorAirLine.getCheckTicket("G3424");
+// console.log(angkorAirLine.getCheckTicket("G3424"));
 
-// Check meal on flight
-console.log(angkorAirLine.getCheckMeal("G3424"));
+// // Check meal on flight
+// console.log(angkorAirLine.getCheckMeal("G3424"));
 
 
 
